@@ -1,17 +1,21 @@
-﻿using System;
+﻿using AppVentas.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AppVentas.Models;
+using AppVentas.ViewModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace AppVentas
 {
     public partial class App : Application
     {
-        public App()
+        public App(String filename)
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            VentasViewModel.Inicializador(filename);
+            MainPage = new ListaVentas();
         }
 
         protected override void OnStart()
